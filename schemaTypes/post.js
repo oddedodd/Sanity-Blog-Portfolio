@@ -40,6 +40,26 @@ export default defineType({
       of: [{type: 'reference', to: {type: 'category'}}],
     }),
     defineField({
+      name: 'url',
+      title: 'Project URL',
+      type: 'url',
+      description: 'Add the project URL if this is a portfolio item',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
+    }),
+    defineField({
+      name: 'githubUrl',
+      title: 'GitHub Repository URL',
+      type: 'url',
+      description: 'Add the GitHub repository URL if this is a portfolio item',
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ['http', 'https'],
+        }),
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
